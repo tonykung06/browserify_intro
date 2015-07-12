@@ -5,7 +5,7 @@ module.exports = function(grunt) {
         browserify: {
             app: {
                 src: 'src/js/app.js',
-                dest: 'dest/js/app.bundle.js',
+                dest: 'dist/js/app.bundle.js',
                 options: {
                     browserifyOptions: {
                         debug: true
@@ -16,14 +16,23 @@ module.exports = function(grunt) {
         watch: {
             app: {
                 files: ['src/js/**/*.js'],
-                tasks: ['browserify']
+                tasks: ['browserify'],
+                options: {
+                    livereload: true //will start another server to serve livereload.js, build web-socket connection with browser clients and notify corresponding browser client to refresh
+                }
             }
         },
         connect: {
             app: {
                 options: {
                     port: 9001,
-                    base: './dest/'
+                    base: './dist/',
+                    //middleware that is executed to inject livereload script to make web-socket connection with livereload server started by watch module possible
+                    middleware: function(connect, options, middlewares) {
+                        middlewares.unshift(require('connect-livereload')()); //need to npm install --save-dev connect-livereload
+
+                        return middlewares;
+                    }
                 }
             }
         }
