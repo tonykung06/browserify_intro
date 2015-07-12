@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Task List</title>
+    <link rel="stylesheet" type="text/css" href="css/tasks.css">
+</head>
+<!-- Emmet/Zencoding -->
+<!-- 
+body>(header>h1{Task List})+(div.toolbar>button#new-task-button{New Task}+button#delete-all-button{Delete All})+(div#content>ul#task-list+ul#log-list)+(div.toolbar>button#save-button{Save}+button#cancel-button{Cancel})+script[src="app.bundle.js"] 
+-->
+
+<body>
+    <header>
+        <h1>Task List</h1>
+    </header>
+    <div class="toolbar">
+        <button id="new-task-button">New Task</button>
+        <button id="delete-all-button">Delete All</button>
+    </div>
+    <div id="content">
+        <ul id="task-list"></ul>
+        <ul id="log-list"></ul>
+    </div>
+    <div class="toolbar">
+        <button id="save-button">Save</button>
+        <button id="cancel-button">Cancel</button>
+    </div>
+    <script src="js/app.bundle.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{
+  "name": "browserify_intro",
+  "version": "1.0.0",
+  "description": "test out browserify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tonykung06/browserify_intro.git"
+  },
+  "keywords": [
+    "browserify"
+  ],
+  "author": "tonykung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tonykung06/browserify_intro/issues"
+  },
+  "homepage": "https://github.com/tonykung06/browserify_intro#readme",
+  "devDependencies": {
+    "jquery": "^2.1.4"
+  }
+}
