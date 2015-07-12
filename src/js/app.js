@@ -1,32 +1,38 @@
 //to bundle the entry app.js and all its dependencies
-//browserify src/js/app.js -o src/js/app.bundle.js
+//browserify src/js/app.js -o dest/js/app.bundle.js --debug
+//--debug will generate sourcemap and append to the bundle js file
+
+//npm install -g browserify
+//npm install -g watchify
+//watchify src/js/app.js -o dest/js/app.bundle.js --debug -v
+//watchify is used in place of browserify to watch any text change in the source
 
 'use strict';
 
 var $ = require('jquery');
 var tasks = require('./tasks');
 
-function _addTask () {
+function _addTask() {
     tasks.add();
 }
 
-function _deleteAllTasks () {
+function _deleteAllTasks() {
     tasks.clear();
 }
 
-function _saveChanges () {
+function _saveChanges() {
     tasks.save();
 }
 
-function _cancelChanges () {
+function _cancelChanges() {
     tasks.cancel()
 }
 
-function _deleteTask () {
+function _deleteTask() {
     tasks.remove(clickEvent);
 }
 
-function _registerEventHandlers () {
+function _registerEventHandlers() {
     $('#new-task-button').on('click', _addTask);
     $('#delete-all-button').on('click', _deleteAllTasks);
     $('#save-button').on('click', _saveChanges);
