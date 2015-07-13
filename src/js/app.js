@@ -7,6 +7,11 @@
 //watchify src/js/app.js -o dest/js/app.bundle.js --debug -v
 //watchify is used in place of browserify to watch any text change in the source
 
+//to transform handlebars html template, need to install two modules
+//npm install --save-dev hbsfy
+//npm install --save-dev handlebars
+//browserify src/js/app.js -o dest/js/app.bundle.js --debug -t hbsfy
+
 'use strict';
 
 var $ = require('jquery');

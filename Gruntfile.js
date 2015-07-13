@@ -8,7 +8,8 @@ module.exports = function(grunt) {
                 dest: 'dist/js/app.bundle.js',
                 options: {
                     browserifyOptions: {
-                        debug: true
+                        debug: true,
+                        transform: ['hbsfy']
                     }
                 }
             }
