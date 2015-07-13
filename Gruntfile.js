@@ -36,12 +36,20 @@ module.exports = function(grunt) {
                     }
                 }
             }
+        },
+        jasmine: {
+            app :{
+                options: {
+                    specs: 'spec/**/*.spec.js'
+                }
+            }
         }
     });
 
     grunt.loadNpmTasks('grunt-browserify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
 
     grunt.registerTask('default', ['browserify']);
     grunt.registerTask('serve', ['browserify:app', 'connect:app', 'watch:app']);
