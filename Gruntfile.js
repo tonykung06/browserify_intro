@@ -12,6 +12,17 @@ module.exports = function(grunt) {
                         transform: [/*'hbsfy'*/'./transforms/handlebars-transform']
                     }
                 }
+            },
+            jasmine_test: {
+                src: 'spec/**/*.spec.js',
+                dest: 'tmp/spec.bundle.js',
+                options: {
+                    browserifyOptions: {
+                        debug: true,
+                        transform: 'hbsfy',
+                        plugin: 'proxyquireify/plugin' //cmd: browserify <src> -o <dest> --debug -t hbsfy -p proxyquireify/plugin
+                    }
+                }
             }
         },
         watch: {
@@ -40,7 +51,7 @@ module.exports = function(grunt) {
         jasmine: {
             app :{
                 options: {
-                    specs: 'spec/**/*.spec.js'
+                    specs: 'tmp/spec.bundle.js'
                 }
             }
         }
@@ -52,6 +63,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jasmine');
 
     grunt.registerTask('default', ['browserify']);
+    grunt.registerTask('test', ['browserify:jasmine_test', 'jasmine']);
     grunt.registerTask('serve', ['browserify:app', 'connect:app', 'watch:app']);
 
 };
