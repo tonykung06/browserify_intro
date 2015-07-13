@@ -9,7 +9,7 @@ module.exports = function(grunt) {
                 options: {
                     browserifyOptions: {
                         debug: true,
-                        transform: ['hbsfy']
+                        transform: [/*'hbsfy'*/'./transforms/handlebars-transform']
                     }
                 }
             }

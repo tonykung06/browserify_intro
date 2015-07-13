@@ -12,6 +12,9 @@
 //npm install --save-dev handlebars
 //browserify src/js/app.js -o dest/js/app.bundle.js --debug -t hbsfy
 
+//to use custom hbs transform module
+//browserify src/js/app.js -o dest/js/app.bundle.js --debug -t ./transforms/handlebars.transform
+
 'use strict';
 
 var $ = require('jquery');
